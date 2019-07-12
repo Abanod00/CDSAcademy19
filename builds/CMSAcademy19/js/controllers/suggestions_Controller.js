@@ -6,8 +6,6 @@ myApp.controller('SuggestionsController',
             var ref = firebase.database().ref();
             var auth = $firebaseAuth();
 
-            $scope.query = ''; //Filter query
-            $scope.direction = null;
 
             auth.$onAuthStateChanged(function(authUser) {
                 if (authUser) {

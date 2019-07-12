@@ -88,10 +88,10 @@ myApp.controller('TopicsController',
                                         dislikes: topicDisLike
                                     }).
                                     then(function() { //If update works
-                                           showAlert(true);  
+                                           
                                         })
                                         .catch(function(error) { //If update doesn not work
-                                                showAlert(false);  
+                                              
                                         });
 
 
@@ -107,25 +107,6 @@ myApp.controller('TopicsController',
             }); //onAuthStateChanged
         }
     ]); //myApp.controller
-
-//Method to when save result create an altert.
-function showAlert(bool) {
-
-  if(bool){
-    $("#alert").removeClass("alert-danger").addClass("alert-success").append("<strong>Success!</strong> Your changes have been saved.");
-
-  }else{ 
-    $("#alert").append("<strong>Failure!</strong> Your changes have not been saved.");
-
-  }
-  $("#alert").removeClass("d-none");
-
-  setTimeout(function(){ 
-      $("#alert").addClass("d-none");
-      $("#alert").empty();
-
-    }, 1500);
-}
 
 
 

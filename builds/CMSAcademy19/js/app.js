@@ -24,10 +24,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/myMessages.html',
       controller: 'myMessagesController'
     }).
-    when('/user/:uId/', {
-      templateUrl: 'views/user.html',
-      controller: 'UserController'
-    }).
     when('/topics/:uId/', {
       templateUrl: 'views/topics.html',
       controller: 'TopicsController'
