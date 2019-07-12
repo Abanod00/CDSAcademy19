@@ -54,10 +54,10 @@ myApp.controller('TopicsController',
                                         likes: topicLike
                                     }).
                                     then(function() { //If update works
-                                           showAlert(true);  
+                                           
                                         })
                                         .catch(function(error) { //If update doesn not work
-                                               showAlert(false);  
+                                               
                                         });
 
 

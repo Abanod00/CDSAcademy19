@@ -68,8 +68,8 @@ myApp.controller('MessagesController',
                         $rootScope.howManyUsers = usersInfo.length; //Number os messagess
                     });
 
-                    var rand = 1 + Math.floor(Math.random() * $rootScope.howManyUsers);
-                    $scope.random = rand;
+
+
 
                 } //authUser
             }); //onAuthStateChanged
