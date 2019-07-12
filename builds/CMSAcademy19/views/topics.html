@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.css">
+<script src="js/topics.js"></script>
+
+<div class="my-3 p-3 bg-white rounded box-shadow">
+		<div class="row">
+			<div class="col-md-12">
+				<h4>All Topic</h4>
+			</div>
+
+			<div class="col-lg-8 col-md-10 ml-auto mr-auto">
+
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="text-center">Topic ID</th>
+								<th>Author</th>
+								<th>Topic</th>
+								<th>Likes</th>
+								<th>Diskiles</th>
+								<th class="text-right">Like</th>
+								<th class="text-right">Dislike</th>
+							</tr>
+						</thead>
+						<tbody>
+								<tr id="TopicsTable" ng-repeat="(key, topic) in topics" >
+
+									<td class="text-center">{{$index}}</td>
+									<td>@{{topic.user.alias}}</td>
+									<td>{{topic.topic}}</td>
+
+									<td id="likes" class="green" ng-show="topic.likes > topic.dislikes" >{{topic.likes}}</td>
+									<td id="likes" ng-show="topic.likes <= topic.dislikes" >{{topic.likes}}</td>
+
+									<td id="dislikes" class="red" ng-show="topic.dislikes > topic.likes" >{{topic.dislikes}}</td>
+									<td id="dislikes" ng-show="topic.dislikes <= topic.likes" >{{topic.dislikes}}</td>
+
+									
+
+									<td class="td-actions text-right">
+									    <button class="btn btn-delete " ng-click="addlike(topic.$id)">
+               							<i class="glyphicon glyphicon-thumbs-up"></i></button> 
+									</td>
+									<td class="td-actions text-right">
+									    <button class="btn btn-delete " ng-click="addDislike(topic.$id)">
+               							<i class="glyphicon glyphicon-thumbs-down"></i></button>
+									</td>
+								</tr>
+						
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="container">
+
+		<div id="alert" class="alert alert-danger d-none"></div>
+
+		<h3 id="form_header" class="text-warning" align="center">Post topic</h3>
+		<div></div>
+
+		<!-- User input form to validate a user -->
+	
+		<form id="user_form" ng-submit="addTopic()">
+			<div class="form-group">
+			<input type="text" class="form-control" id="name" name="name"  ng-model="topicMessage" ng-requiered="true">
+			</div>
+			<button id="postTopic" type="submit" class="btn btn-primary">Post Topic</button>
+		</form>
+	</div>
+	

@@ -1,0 +1,65 @@
+<script src="js/messages.js"></script>
+<link href="css/messages.css" rel="stylesheet">
+
+<main role="main" class="container">
+    <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+
+        <img class="mr-3" alt="" width="48" height="48" src='images/cds-logo.png'>
+        <div class="lh-100">
+            <h6 class="mb-0 text-white lh-100">CDS Academy</h6>
+            <small>2019</small>
+        </div>
+    </div>
+
+    <div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+
+        <c ng-repeat="(key, message) in messages | limitTo : howManyMessages : 5 | orderBy:message:true ">
+
+            <div class="media text-muted pt-3">
+                <img alt="32x32" class="mr-2 rounded" style="width: 32px; height: 32px;" src="images/huevo.jpg" data-holder-rendered="true">
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <strong class="d-block text-gray-dark">@{{message.user.alias}}</strong> {{message.message}}
+                </p>
+            </div>
+        </c>
+
+        <small class="d-block text-right mt-3">
+          <a href="#">All updates</a>
+        </small>
+    </div>
+
+    <div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Suggestions</h6>
+
+        <div class="media text-muted pt-3" ng-repeat="(key, randomUser) in randomUsers | limitTo: 2 : random">
+            <img alt="32x32" class="mr-2 rounded" src="images/huevo.jpg" data-holder-rendered="true" style="width: 32px; height: 32px;">
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark">{{randomUser.firstname}}</strong>
+                    <a href="#">Follow</a>
+                </div>
+                <span class="d-block">@{{randomUser.alias}}</span>
+            </div>
+        </div>
+
+        <small class="d-block text-right mt-3">
+          <a  ng-href="#/suggestions/{{currentUser.regUser}}">All suggestions</a>
+        </small>
+    </div>
+</main>
+
+<div class="container">
+    <h3 id="form_header" class="text-warning" align="center">Post message</h3>
+    <div></div>
+
+    <!-- User input form to validate a user -->
+    <form class="formgroup addmeeting cf" name="myform" ng-submit="addMessage()">
+
+        <div class="form-group">
+            <textarea class="form-control" name='messagePost' id='messagePost' ng-model="messagePost" ng-required="true"></textarea>
+        </div>
+        <button id="postMessage" type="submit" class="btn btn-primary">Post Message</button>
+
+    </form>
+</div>

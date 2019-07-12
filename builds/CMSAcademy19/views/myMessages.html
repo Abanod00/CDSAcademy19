@@ -1,0 +1,44 @@
+
+<link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.css">
+<link href="css/messages.css"  rel="stylesheet">
+
+
+	<div class="my-3 p-3 bg-white rounded box-shadow">
+		<div class="row">
+			<div class="col-md-12">
+				<h4>@{{currentUser.alias}} - Messages</h4>
+			</div>
+			<div class="col-lg-8 col-md-10 ml-auto mr-auto">
+
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="text-center">Message ID</th>
+								<th>Name</th>
+								<th>Alias</th>
+								<th>Message</th>
+								<th>Date</th>
+								<th class="text-right">Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+
+								<tr  ng-repeat="(key, message) in messages">
+									<td class="text-center">{{$index}}</td>
+									<td>{{currentUser.firstname}}</td>
+									<td>@{{currentUser.alias}}</td>
+									<td>{{message.message}}</td>
+									<td>{{formatDate(message.date)}}</td>
+									<td class="td-actions text-right">
+										<button class="btn btn-delete " ng-click="deleteMessage(key)">
+               							<i class="glyphicon glyphicon-remove"></i></button>
+									</td>
+								</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>

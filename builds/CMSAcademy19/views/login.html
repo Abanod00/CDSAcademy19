@@ -1,0 +1,81 @@
+<link href="css/login.css" rel="stylesheet">
+
+
+<div class="login-wrap">
+	<div class="login-html">
+
+		<p class="message" ng-show="logMessage">{{ logMessage }}</p>
+
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Register</label>
+		
+		
+		<div class="login-form">
+
+		<div>
+		<!-- Log -->
+		    <form name="myformLogin" ng-submit="login()" novalidate>
+			<div class="sign-in-htm">
+
+				<div class="group">
+					<label for="name" class="label">Email</label>
+               		<input type="email" name="email" ng-model="user.email" ng-required="true" class="input">
+              		<!-- <p class="error validationerror" ng-show="myformLogin.email.$invalid && myformLogin.email.$touched">
+                  Must be a valid email -->
+				</div>
+
+				<div class="group">
+					<label for="password" class="label">Password</label>
+              		<input type="password" name="password" ng-model="user.password" ng-required="true" class="input">
+               		 <!--  <p class="error validationerror" ng-show="myformLogin.password.$invalid && myformLogin.email.$touched">
+                  	Password is required -->
+               </p>
+				</div>
+
+				<div class="group">
+					<button type="submit" class="btn" ng-disabled="myformLogin.$invalid">Sign in</button>
+				</div>
+				<div class="hr"></div>
+			</div>
+		</form>
+		</div>	
+			<!-- Register -->
+		<div>
+
+		 <form name="myformRegister" ng-submit="register()" novalidate>
+			<div class="for-pwd-htm">
+				<div class="group">
+					<label for="name" class="label">Name</label>
+					<input type="text" name="name"  ng-model="user.name" ng-required="true" class="input">
+				</div>
+
+				<div class="group">
+					<label for="email" class="label">Email</label>
+					<input type="email" name="email" ng-model="user.email" ng-required="true" class="input">
+				</div>
+
+				<div class="group">
+					<label for="alias" class="label">Alias</label>
+					<input type="text" name="alias"  ng-model="user.alias" ng-required="true" class="input">
+				</div>
+
+				<div class="group">
+					<label for="password" class="label">Password</label>
+					<input id="password" type="password" name="password" ng-model="user.password" ng-required="true" class="input">
+				</div>
+
+				<div class="group">
+  				<button id="btnSubmit" type="submit" class="btn" ng-disabled="myformRegister.$invalid">Register</button>
+				</div>
+				<div class="hr"></div>
+			</div>
+			
+
+			
+
+		</form>			
+		</div>	
+		</div>
+	</div>
+</div>
+
