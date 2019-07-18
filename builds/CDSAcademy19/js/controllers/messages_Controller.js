@@ -51,7 +51,8 @@ myApp.controller('MessagesController',
 
                     //deletemessages
                     $scope.deleteMessage = function(key) {
-                        messagesInfo.$remove(key);
+                        console.log("aaa");
+                        allMessagesInfo.$remove(key);
                     } //deletemessages
 
 
